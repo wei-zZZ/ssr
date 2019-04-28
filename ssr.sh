@@ -1332,7 +1332,7 @@ echo -e "${Green_font_prefix} [安装前 请注意] ${Font_color_suffix}
 	fi
 }
 Install_BBR(){
-	[[ ${release} = "centos" ]] && echo -e "${Error} 本脚本不支持 CentOS系统安装 BBR !" && exit 1
+	[[ -e ${Status_BBR} ]] && echo -e "${Error} bbr 已安装 !" && exit 1
 	cd /root
 	#借用秋水逸冰de bbr
 	wget --no-check-certificate https://github.com/wei-zZZ/bbr/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
