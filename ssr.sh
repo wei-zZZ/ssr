@@ -1333,8 +1333,21 @@ echo -e "${Green_font_prefix} [安装前 请注意] ${Font_color_suffix}
 }
 Install_BBR(){
 	[[ ${release} = "centos" ]] && echo -e "${Error} 本脚本不支持 CentOS系统安装 BBR !" && exit 1
-	BBR_installation_status
-	bash "${BBR_file}"
+	cd /root
+	#借用秋水逸冰de bbr
+	wget --no-check-certificate https://github.com/wei-zZZ/bbr/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+	[[ ! -e "bbr.sh" ]] && echo -e "${Error} bbr安装脚本下载失败 !" && exit 1
+	bash bbr.sh
+	sleep 2s
+	PID=`ps -ef |grep -v grep |grep "bbr" |awk '{print $2}'`
+	if [[ ! -z ${PID} ]]; then
+		rm -rf /root/bbr.sh
+		rm -rf /root/bbr
+		rm -rf /root/bbr.tar.gz
+		echo -e "${Info} bbr 安装完成 !" && exit 1
+	else
+		echo -e "${Error} bbr 安装失败 !" && exit 1
+	fi
 }
 Start_BBR(){
 	BBR_installation_status
