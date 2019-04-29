@@ -264,8 +264,8 @@ Set_config_port(){
 }
 Set_config_password(){
 	echo "请输入要设置的ShadowsocksR账号 密码"
-	read -e -p "(默认: dageda):" ssr_password
-	[[ -z "${ssr_password}" ]] && ssr_password="dageda"
+	read -e -p "(默认: da_ge_da):" ssr_password
+	[[ -z "${ssr_password}" ]] && ssr_password="da_ge_da"
 	echo && echo ${Separator_1} && echo -e "	密码 : ${Green_font_prefix}${ssr_password}${Font_color_suffix}" && echo ${Separator_1} && echo
 }
 Set_config_method(){
