@@ -235,7 +235,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/dou
 
 #### 下载安装:
 ``` bash
-wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/socat.sh && chmod +x socat.sh && bash socat.sh
+wget -N --no-check-certificate https://raw.githubusercontent.com/wei-zZZ/ssr/master/socat.sh && chmod +x socat.sh && bash socat.sh
 ```
 
 ---
