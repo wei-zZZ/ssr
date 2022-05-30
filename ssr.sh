@@ -294,8 +294,8 @@ Set_config_method(){
  ${Green_font_prefix}15.${Font_color_suffix} chacha20
  ${Green_font_prefix}16.${Font_color_suffix} chacha20-ietf
  ${Tip} salsa20/chacha20-*系列加密方式，需要额外安装依赖 libsodium ，否则会无法启动ShadowsocksR !" && echo
-	read -e -p "(默认: 5. aes-128-ctr):" ssr_method
-	[[ -z "${ssr_method}" ]] && ssr_method="5"
+	read -e -p "(默认: 15. chacha20):" ssr_method
+	[[ -z "${ssr_method}" ]] && ssr_method="15"
 	if [[ ${ssr_method} == "1" ]]; then
 		ssr_method="none"
 	elif [[ ${ssr_method} == "2" ]]; then
@@ -343,8 +343,8 @@ Set_config_protocol(){
  ${Green_font_prefix}5.${Font_color_suffix} auth_chain_a
  ${Green_font_prefix}6.${Font_color_suffix} auth_chain_b
  ${Tip} 如果使用 auth_chain_a 协议，请加密方式选择 none，混淆随意(建议 plain)" && echo
-	read -e -p "(默认: 1. origin):" ssr_protocol
-	[[ -z "${ssr_protocol}" ]] && ssr_protocol="1"
+	read -e -p "(默认: 3. auth_aes128_md5):" ssr_protocol
+	[[ -z "${ssr_protocol}" ]] && ssr_protocol="3"
 	if [[ ${ssr_protocol} == "1" ]]; then
 		ssr_protocol="origin"
 	elif [[ ${ssr_protocol} == "2" ]]; then
@@ -381,8 +381,8 @@ Set_config_obfs(){
  ${Tip} 如果使用 ShadowsocksR 加速游戏，请选择 混淆兼容原版或 plain 混淆，然后客户端选择 plain，否则会增加延迟 !
  另外, 如果你选择了 tls1.2_ticket_auth，那么客户端可以选择 tls1.2_ticket_fastauth，这样即能伪装又不会增加延迟 !
  如果你是在日本、美国等热门地区搭建，那么选择 plain 混淆可能被墙几率更低 !" && echo
-	read -e -p "(默认: 5. tls1.2_ticket_auth):" ssr_obfs
-	[[ -z "${ssr_obfs}" ]] && ssr_obfs="5"
+	read -e -p "(默认: 1. plain):" ssr_obfs
+	[[ -z "${ssr_obfs}" ]] && ssr_obfs="1"
 	if [[ ${ssr_obfs} == "1" ]]; then
 		ssr_obfs="plain"
 	elif [[ ${ssr_obfs} == "2" ]]; then
